@@ -25,8 +25,8 @@ import { readFileSync } from "node:fs";
 	const receiver = await Keypair.fromSecretKey(receiverFileKeyBuffer);
 	console.log(`\nreceiver address: ${receiver.address}\n`);
 	const ix = SystemProgram.transfer({
-		fromPubkey: receiver.publicKey,
-		toPubkey: signer.publicKey,
+		fromPubkey: signer.publicKey,
+		toPubkey: receiver.publicKey,
 		lamports: 0.1*LAMPORTS_PER_SOL,
 	});
 
